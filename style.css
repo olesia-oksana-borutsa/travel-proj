@@ -1,0 +1,141 @@
+/* Базові налаштування */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fcf2dd;
+    color: #2d0d0d;
+}
+
+header {
+    background-color: #c85d00; 
+    color: rgb(255, 243, 243);
+    padding: 22px;
+    text-align: center;
+    
+    box-shadow: 0 2px 14px rgba(68, 2, 2, 0.311);
+}
+
+main {
+    display: flex; 
+    flex-wrap: wrap; /* Дозволяємо переносити, якщо екран вузький */
+    padding: 20px;
+    gap: 20px;
+}
+
+
+.filters {
+    flex-basis: 250px; 
+    flex-shrink: 0; /* Не зменшувати */
+    background: rgb(255, 249, 243);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(71, 1, 1, 0.177);
+    align-self: flex-start;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.filter-group select,
+.filter-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box; /* Щоб padding не ламав ширину */
+    border: 1px solid #f5b2b2;
+    border-radius: 4px;
+}
+
+/* Кнопки фільтрів */
+.filters button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.filters button[type="submit"] {
+    background-color: #dc560ef1; 
+    color: rgb(255, 255, 255);
+}
+
+.filters button[type="reset"] {
+    background-color: #f4f7f6;
+    color: #5c1c1c;
+    border: 1px solid #dc560ef1;
+}
+
+
+#tours-container {
+    flex-grow: 1; /* Зайняти весь вільний простір */
+    min-width: 300px; 
+}
+
+
+#tours-grid {
+    display: grid;
+    /* сітка: колонки мін. 300px, 
+       автоматично заповнюють простір */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/*  картка туру */
+.tour-card {
+    background: rgb(255, 246, 238);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(119, 2, 2, 0.364);
+    overflow: hidden;  
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column; 
+}
+.tour-card:hover {
+    transform: translateY(-15px); 
+}
+
+.tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+}
+
+.tour-card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /*   весь вільний простір */
+}
+
+.tour-card h3 {
+    margin-top: 0;
+    color: #722c03;
+}
+
+.tour-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d9534f;
+    margin-top: auto; 
+}
+
+.tour-card .details-link {
+    display: inline-block;
+    background-color: #dc560ef1;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 10px;
+}

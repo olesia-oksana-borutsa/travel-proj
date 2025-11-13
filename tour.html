@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі туру</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="tour.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="back-link">
+            &larr; Назад до всіх турів
+        </a>
+    </header>
+
+    <main class="tour-details-page">
+
+        <section id="tour-details-container">
+            <p>Завантаження деталей туру...</p>
+        </section>
+
+        <section id="reviews-section">
+            <h2>Відгуки</h2>
+            
+            <form id="review-form">
+                <h3>Залишити відгук</h3>
+                <div class="form-group">
+                    <label for="author_name">Ваше ім'я:</label>
+                    <input type="text" id="author_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Ваша оцінка (1-5):</label>
+                    <select id="rating" required>
+                        <option value="5">5 (Чудово)</option>
+                        <option value="4">4 (Добре)</option>
+                        <option value="3">3 (Нормально)</option>
+                        <option value="2">2 (Погано)</option>
+                        <option value="1">1 (Жахливо)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Ваш коментар:</label>
+                    <textarea id="comment" rows="4" required></textarea>
+                </div>
+                <button type="submit">Відправити</button>
+            </form>
+            
+            <div id="reviews-list">
+                <p>Завантаження відгуків...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <style>
+       
+        .back-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        .tour-details-page {
+            flex-direction: column; /* Елементи один під одним */
+        }
+        #tour-details-container {
+            display: flex;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        #tour-details-container img {
+            width: 50%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+        #tour-details-info {
+            flex: 1;
+        }
+        #reviews-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        #review-form {
+            max-width: 600px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .review-item {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        .review-item strong {
+            font-size: 1.1rem;
+        }
+        .review-item .rating {
+            font-weight: bold;
+            color: #f0ad4e;  
+        }
+    </style>
+</body>
+</html>

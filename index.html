@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турагентство  </title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Світ чекає на тебе</h1>
+    </header>
+
+    <main>
+        <aside class="filters">
+            <h2>Фільтри</h2>
+            <form id="filter-form">
+                
+                <div class="filter-group">
+                    <label for="country-select">Країна:</label>
+                    <select id="country-select" name="country">
+                        <option value="">Будь-яка</option>
+                        <option value="Italy">Італія</option>
+                        <option value="Spain">Іспанія</option>
+                        <option value="Greece">Греція</option>
+                        <option value="Turkey">Туреччина</option>
+                        <option value="Egypt">Єгипет</option>
+                        <option value="Albania">Албанія</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="type-select">Тип відпочинку:</label>
+                    <select id="type-select" name="type">
+                        <option value="">Будь-який</option>
+                        <option value="beach">Пляжний</option>
+                        <option value="excursion">Екскурсійний</option>
+                        <option value="city-tour">Міський тур</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="price-max">Ціна до (€):</label>
+                    <input type="range" id="price-max" name="price_max" 
+                           min="500" max="1500" step="50" value="1500">
+                    <span id="price-value">1500</span>
+                </div>
+
+                <button type="submit">Застосувати</button>
+                <button type="reset" id="reset-filters">Скинути</button>
+            </form>
+        </aside>
+
+        <section id="tours-container">
+            <h2>Доступні тури</h2>
+            <div id="tours-grid">
+                <p>Завантаження турів...</p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
