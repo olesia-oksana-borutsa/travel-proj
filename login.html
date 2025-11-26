@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід та Реєстрація</title>
+    <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* центрування форми */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .auth-container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .auth-container input {
+            margin-bottom: 15px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .btn-group button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+        }
+        #btn-login { background-color: #d35400; }
+        #btn-register { background-color: #2c3e50; }
+        
+        .error-msg { color: red; font-size: 0.9rem; margin-top: 10px; }
+        .back-link { margin-bottom: 20px; color: #666; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">&larr; На головну</a>
+
+    <div class="auth-container">
+        <h2>Особистий кабінет</h2>
+        <p>Увійдіть або зареєструйтесь, щоб залишати відгуки</p>
+        
+        <form id="auth-form">
+            <div class="filter-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required placeholder="email@example.com">
+            </div>
+            
+            <div class="filter-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" required placeholder="Мінімум 6 символів">
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" id="btn-login">Увійти</button>
+                <button type="button" id="btn-register">Реєстрація</button>
+            </div>
+            
+            <p id="message" class="error-msg"></p>
+        </form>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+
+</body>
+</html>

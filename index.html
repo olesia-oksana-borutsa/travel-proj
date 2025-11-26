@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Турагентство  </title>
+    <title>Турагентство "Мрія"</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     
     <script src="script.js" defer></script>
@@ -45,11 +50,10 @@
                 <div class="filter-group">
                     <label for="price-max">Ціна до (€):</label>
                     <input type="range" id="price-max" name="price_max" 
-                           min="500" max="1500" step="50" value="1500">
-                    <span id="price-value">1500</span>
+                           min="100" max="3000" step="50" value="3000">
+                    <span id="price-value">3000</span>
                 </div>
 
-                <button type="submit">Застосувати</button>
                 <button type="reset" id="reset-filters">Скинути</button>
             </form>
         </aside>
@@ -57,7 +61,7 @@
         <section id="tours-container">
             <h2>Доступні тури</h2>
             <div id="tours-grid">
-                <p>Завантаження турів...</p>
+                <div class="loader"></div>
             </div>
         </section>
     </main>
