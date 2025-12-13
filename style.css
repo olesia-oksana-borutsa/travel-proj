@@ -1,141 +1,780 @@
-/* Базові налаштування */
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fcf2dd;
-    color: #2d0d0d;
+    /* Фон сторінки (бежевий градієнт) */
+    background: linear-gradient(0deg, #FFE9D8, #FFE9D8);
+    font-family: 'Open Sans', sans-serif;
+    color: #380404;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*ХЕДЕР  */
 header {
-    background-color: #c85d00; 
-    color: rgb(255, 243, 243);
-    padding: 22px;
-    text-align: center;
+    background-color: #C89669; /* Коричнева смуга */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ЛОГОТИП  */
+.logo {
+    display: flex;
+    align-items: center; 
+}
+
+.logo-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.2s; 
+}
+
+.logo-link:hover {
+    transform: scale(1.05); 
+}
+
+.logo-main-img {
+    height: 70px; 
+    width: auto;  
+    display: block;
+    object-fit: contain;
+}
+
+
+.logo-text, .logo-img {
+    display: none;
+}
+
+/*МЕНЮ */
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    font-family: 'Abhaya Libre', serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #000000;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #FFF5E2; /* Світлий колір при наведенні */
+}
+
+/*Вхід/Реєстрація */
+.auth-corner {
+    display: flex;
+    align-items: center;
+}
+
+#guest-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 17px; 
+    font-family: 'Andika', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #380404;
     
-    box-shadow: 0 2px 14px rgba(68, 2, 2, 0.311);
+    background: #FFF5E2; 
+    border: 2px solid rgba(255, 255, 255, 0.47);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    
+    cursor: pointer;
+    transition: transform 0.2s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-main {
-    display: flex; 
-    flex-wrap: wrap; /* Дозволяємо переносити, якщо екран вузький */
-    padding: 20px;
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-light-outline {
+    background: #FFF5E2; 
+}
+.btn-white {
+    background: #FFF5E2;
+}
+
+/* ГОЛОВНА СТОРІНКА */
+.home-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 50px auto 0;
+    padding: 0 20px;
+    position: relative;
+    min-height: 600px;
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 2;
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+.hero-badge {
+    background: linear-gradient(91.07deg, rgba(230, 132, 46, 0.77) 19.51%, rgba(217, 107, 10, 0) 67.89%);
+    padding: 15px 40px;
+    margin-left: -100px; 
+    padding-left: 100px;
+    border-radius: 0 50px 50px 0;
+    display: inline-block;
+    margin-bottom: 30px;
+    
+    font-family: 'Ysabeau Infant', sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    color: #FFFFFF;
+}
+
+.hero-title {
+    font-family: 'Arsenal', sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 1.1;
+    color: #000;
+    margin: 0 0 50px 0;
+}
+
+.hero-btn {
+    background: linear-gradient(90deg, #E6842E 0%, #d35400 100%);
+    color: #380404;
+    font-family: 'Andika', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    padding: 20px 50px;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.47);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    display: inline-block;
+    transition: transform 0.2s;
+}
+
+.hero-btn:hover {
+    transform: translateY(-5px);
+}
+
+.hero-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 600px;
+}
+
+.blob-bg {
+    position: absolute;
+    width: 900px;
+    height: 800px;
+    background: #E6842E;
+    border-radius: 44% 56% 35% 65% / 55% 38% 62% 45%;
+    z-index: 0;
+    right: -200px;
+    top: -100px;
+}
+
+.hero-img {
+    position: relative;
+    z-index: 1;
+    width: 110%;
+    max-width: 800px;
+    object-fit: contain;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+
+/* СТОРІНКА КАТАЛОГУ*/
+
+.catalog-main {
+    max-width: 1280px;
+    margin: 50px auto; 
+    padding: 0 20px;
+}
+
+/* Панель фільтрів */
+.filters-top {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.filters-form {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 33px;
+    
+    width: 100%;
+    max-width: 892px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 20px;
+    flex-wrap: wrap; 
 }
 
-
-.filters {
-    flex-basis: 250px; 
-    flex-shrink: 0; /* Не зменшувати */
-    background: rgb(255, 249, 243);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(71, 1, 1, 0.177);
-    align-self: flex-start;
+.filter-item {
+    flex: 1;
+    min-width: 200px;
 }
 
-.filter-group {
+.filter-select, 
+.filter-input {
+    width: 100%;
+    height: 55px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.33);
+    border-radius: 20px;
+    font-family: 'Andika', sans-serif;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 0 20px;
+    outline: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+/* Сітка карток */
+.tours-grid-new {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    padding-bottom: 60px;
+}
+
+/* Картка туру  */
+.tour-card {
+    width: 353px;
+    
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 33px;
+    
+    padding: 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
     margin-bottom: 20px;
 }
 
-.filter-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.filter-group select,
-.filter-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box; /* Щоб padding не ламав ширину */
-    border: 1px solid #f5b2b2;
-    border-radius: 4px;
-}
-
-/* Кнопки фільтрів */
-.filters button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.filters button[type="submit"] {
-    background-color: #dc560ef1; 
-    color: rgb(255, 255, 255);
-}
-
-.filters button[type="reset"] {
-    background-color: #f4f7f6;
-    color: #5c1c1c;
-    border: 1px solid #dc560ef1;
-}
-
-
-#tours-container {
-    flex-grow: 1; /* Зайняти весь вільний простір */
-    min-width: 300px; 
-}
-
-
-#tours-grid {
-    display: grid;
-    /* сітка: колонки мін. 300px, 
-       автоматично заповнюють простір */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/*  картка туру */
-.tour-card {
-    background: rgb(255, 246, 238);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(119, 2, 2, 0.364);
-    overflow: hidden;  
-    transition: transform 0.2s;
-    display: flex;
-    flex-direction: column; 
-}
 .tour-card:hover {
-    transform: translateY(-15px); 
+    transform: translateY(-5px);
 }
 
 .tour-card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover; 
+    height: 289px;
+    object-fit: cover;
+    border-radius: 23px;
+    border: 1px solid #A0A0A0;
+    margin-bottom: 10px;
 }
 
 .tour-card-content {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /*   весь вільний простір */
+    padding: 0 10px;
 }
 
 .tour-card h3 {
-    margin-top: 0;
-    color: #722c03;
+    font-family: 'Andika', sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    color: #A0734A;
+    margin: 5px 0 10px 0;
+    text-align: left;
 }
 
-.tour-card .price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #d9534f;
-    margin-top: auto; 
+.tour-info-row {
+    display: flex;
+    gap: 15px;
+    font-family: 'Andika', sans-serif;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.54);
+    margin-bottom: 5px;
+    align-items: center;
 }
 
-.tour-card .details-link {
-    display: inline-block;
-    background-color: #dc560ef1;
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 4px;
+.tour-info-row strong {
+    font-weight: 400;
+    min-width: 70px;
+}
+
+.price {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 20px;
+    color: #A0734A;
+    margin: 10px 0 15px 0;
+}
+
+.details-link {
+    width: 100%;
+    height: 48px;
+    background: #C89669;
+    border: 1px solid rgba(0, 0, 0, 0.33);
+    border-radius: 20px;
+    
+    font-family: 'Andika', sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    color: #FFFFFF;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.details-link:hover {
+    background: #a87950;
+}
+
+
+
+
+/* Модальне вікно */
+.modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); z-index: 2000; align-items: center; justify-content: center; }
+.modal-content { background: white; padding: 30px; border-radius: 20px; width: 90%; max-width: 500px; position: relative; }
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; cursor: pointer; }
+
+/* Лоадер */
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #E6842E;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 50px auto;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+
+/* АДАПТИВНІСТЬ */
+@media (max-width: 900px) {
+    .home-main { flex-direction: column; text-align: center; padding-top: 50px;}
+    .hero-visual { width: 100%; margin-top: 50px; height: auto; }
+    .blob-bg { width: 100%; right: 0; top: 0; border-radius: 50%; height: 100%; }
+    
+    /* Адаптив хедера */
+    header { height: auto; padding: 20px 0; }
+    .navbar { flex-direction: column; gap: 20px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    
+    /* Адаптив каталогу */
+    .filters-form { width: 100%; height: auto; flex-direction: column; padding: 20px; border-radius: 20px; }
+    .filter-item { width: 100%; }
+}
+
+/*СТОРІНКА ДЕТАЛЕЙ ТУРУ */
+
+.tour-page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Велика біла картка */
+.tour-big-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 33px;
+    padding: 40px;
+    width: 100%;
+    max-width: 1194px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Верхня частина: Фото + Інфо */
+.tour-header-section {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+/* Фото */
+.tour-image-large {
+    width: 480px;
+    height: 580px;
+    object-fit: cover;
+    border-radius: 30px;
+    border: 1px solid #A0A0A0;
+    flex-shrink: 0;
+}
+
+/* Права колонка з інфо */
+.tour-info-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Заголовок  */
+.tour-title-large {
+    font-family: 'Andika', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #A0734A;
     text-align: center;
-    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* Країна, Тип, Цінa */
+.tour-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px 40px;
+    margin-bottom: 30px;
+    font-family: 'Andika', sans-serif;
+    font-size: 27px;
+}
+
+.spec-label {
+    color: rgba(0, 0, 0, 0.54);
+    text-align: left;
+}
+
+.spec-value {
+    color: rgba(0, 0, 0, 0.54);
+    text-align: right;
+}
+
+.spec-price {
+    font-family: 'Archivo Black', sans-serif;
+    color: #A0734A;
+    text-align: right;
+}
+
+/* Опис туру */
+.tour-description-text {
+    font-family: 'Andika', sans-serif;
+    font-size: 24px;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.54);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Кнопка "Забронювати" */
+.book-btn {
+    background: #C89669;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    width: 345px;
+    height: 82px;
+    border: none;
+    
+    font-family: 'Andika', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: #FFFFFF;
+    
+    cursor: pointer;
+    display: block;
+    margin: 0 auto; 
+    transition: transform 0.2s;
+}
+
+.book-btn:hover {
+    transform: scale(1.02);
+}
+
+/* Кнопка "Улюблене" (Сердечко) */
+.fav-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background: rgba(217, 217, 217, 0.29);
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 50%; /* Кругла */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* Розмір іконки */
+}
+
+/* Секція відгуків  */
+.reviews-wrapper {
+    margin-top: 50px;
+    max-width: 800px;
+}
+
+.review-section-title {
+    font-family: 'Andika', sans-serif;
+    font-size: 27px;
+    color: #7D7D7D;
+    margin-bottom: 15px;
+}
+
+/* Сірі плашки для відгуків */
+.review-box, .review-input {
+    background: rgba(238, 237, 237, 0.74);
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 28px;
+    padding: 20px 30px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Andika', sans-serif;
+    font-size: 24px;
+    color: rgba(21, 21, 21, 0.52);
+    margin-bottom: 30px;
+}
+
+.review-input {
+    height: 150px;
+    resize: none; 
+    font-style: italic;
+}
+
+
+@media (max-width: 1000px) {
+    .tour-header-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tour-image-large {
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+    }
+}
+
+/*Стилі для сторінки ВИБРАНЕ */
+
+.page-title {
+    font-family: 'Andika', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #A0734A; 
+    margin-bottom: 30px;
+    margin-left: 10px;
+    text-decoration: underline; 
+}
+
+/*СЕРДЕЧКО НА КАРТЦІ */
+
+/*  relative, щоб сердечко позиціонувалось відносно нього */
+.card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 289px;
+    margin-bottom: 10px;
+}
+
+/* Сама картинка */
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 23px;
+    border: 1px solid #A0A0A0;
+}
+
+/* Кнопка сердечка */
+.card-fav-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6); /* Напівпрозорий фон */
+    border: none;
+    cursor: pointer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.card-fav-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+
+.card-fav-btn.active {
+    color: red; 
+}
+/*ВІКНА ПРОФІЛ*/
+
+.profile-content {
+    text-align: center;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 33px; 
+    font-family: 'Andika', sans-serif;
+}
+
+/* Обгортка для аватара */
+.profile-avatar-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+}
+
+#profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #C89669;
+}
+
+/* Іконка фотоапарата */
+.upload-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #FFF;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 20px;
+}
+
+/* Поле вводу */
+.profile-form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.profile-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #A0734A;
+    font-weight: bold;
+}
+
+.profile-form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-family: 'Andika', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/*КОНТАКТИ */
+.site-footer {
+    background-color: #380404; 
+    color: #FFF5E2; 
+    padding: 50px 20px 20px;
+    margin-top: 80px;
+    font-family: 'Andika', sans-serif;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    text-align: center;
+}
+
+.footer-column h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #E6842E; 
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.contact-item {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.footer-link {
+    display: block;
+    color: #FFF5E2;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 10px 0;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #E6842E;
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 245, 226, 0.3);
+    font-size: 14px;
+    color: rgba(255, 245, 226, 0.6);
 }

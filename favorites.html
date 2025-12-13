@@ -3,34 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tripify - Головна</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Andika:wght@700&family=Arsenal:ital,wght@0,700;1,700&family=Ysabeau+Infant:wght@900&family=Open+Sans:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-
+    <title>Вибрані тури - Tripify</title>
     <link rel="stylesheet" href="style.css">
-    
-    <script type="module" src="script.js"></script>
-    <script type="module" src="check-auth.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Andika:wght@400;700&family=Archivo+Black&family=Arsenal:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<script type="module" src="check-auth.js"></script>
 </head>
 <body>
 
-    <header>
+  <header>
         <nav class="navbar">
            <div class="logo">
     <a href="index.html" class="logo-link">
         <img src="logo.PNG" alt="Tripify" class="logo-main-img">
     </a>
 </div>
-
             <ul class="nav-links">
-                <li><a href="favorites.html">вибрані</a></li>
-                <li><a href="index.html" class="active">головна</a></li>
+                <li><a href="favorites.html" class="active">вибрані</a></li>
+                <li><a href="index.html">головна</a></li>
                 <li><a href="catalog.html">тури</a></li>
-              <li><a href="index.html#contacts">контакти</a></li>
+                <li><a href="index.html#contacts">контакти</a></li>
             </ul>
-
             <div class="auth-corner">
                 <div id="user-panel">
                     <div id="guest-buttons">
@@ -45,22 +37,15 @@
         </nav>
     </header>
 
-    <main class="home-main">
-        <div class="hero-content">
-            <div class="hero-badge">Світ чекає на тебе</div>
-            <h1 class="hero-title">
-                Подорожуй <br>
-                з легкістю <br>
-                та комфортом
-            </h1>
-            <a href="catalog.html" class="hero-btn">розпочати подорож</a>
-        </div>
+    <main class="catalog-main">
+        <h1 class="page-title">Вибрані тури</h1>
 
-        <div class="hero-visual">
-            <div class="blob-bg"></div>
-            <img src="hero-image.png" alt="Подорож" class="hero-img">
+        <div id="favorites-grid" class="tours-grid-new">
+            <div class="loader"></div>
         </div>
     </main>
+
+    <script type="module" src="favorites.js"></script>
 
     <div id="profile-modal" class="modal">
         <div class="modal-content profile-content">
@@ -83,30 +68,6 @@
             <button id="logout-btn-modal" class="btn btn-light-outline" style="width: 100%; border: 1px solid #ccc;">Вийти з акаунту</button>
         </div>
     </div>
-    
 
-
-    <footer id="contacts" class="site-footer">
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Зв'яжіться з нами</h3>
-                <p class="contact-item">📞 +380 000 000 0000</p>
-                <p class="contact-item">📧 support@tripify.test</p>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Ми в соцмережах</h3>
-                <a href="https://facebook.com" class="footer-link facebook-link" target="_blank">
-                    Facebook
-                </a>
-                <a href="https://instagram.com" class="footer-link" target="_blank">
-                    Instagram
-                </a>
-            </div>
-        </div>
-       
-    </footer>
-
-
-    </body>
+</body>
 </html>

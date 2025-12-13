@@ -3,123 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Деталі туру</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Деталі туру - Tripify</title>
     
-    <script src="tour.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Andika:wght@400;700&family=Archivo+Black&family=Arsenal:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+ <script type="module" src="tour.js"></script>
+    <script type="module" src="check-auth.js"></script>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="back-link">
-            &larr; Назад до всіх турів
-        </a>
+        <nav class="navbar">
+           <div class="logo">
+    <a href="index.html" class="logo-link">
+        <img src="logo.PNG" alt="Tripify" class="logo-main-img">
+    </a>
+</div>
+            <ul class="nav-links">
+                <li><a href="favorites.html">вибрані</a></li>
+                <li><a href="index.html">головна</a></li>
+                <li><a href="catalog.html">тури</a></li>
+               <li><a href="index.html#contacts">контакти</a></li>
+            </ul>
+            <div class="auth-corner">
+                <div id="guest-buttons">
+                    <a href="login.html" class="btn btn-light-outline">зареєструватись</a>
+                    <a href="login.html" class="btn btn-white">увійти</a>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <main class="tour-details-page">
-
-        <section id="tour-details-container">
-            <p>Завантаження деталей туру...</p>
+    <main class="tour-page-container">
+        <section id="tour-details-container" class="tour-big-card">
+            <div class="loader"></div>
         </section>
-
-        <section id="reviews-section">
-            <h2>Відгуки</h2>
-            
-            <form id="review-form">
-                <h3>Залишити відгук</h3>
-                <div class="form-group">
-                    <label for="author_name">Ваше ім'я:</label>
-                    <input type="text" id="author_name" required>
-                </div>
-                <div class="form-group">
-                    <label for="rating">Ваша оцінка (1-5):</label>
-                    <select id="rating" required>
-                        <option value="5">5 (Чудово)</option>
-                        <option value="4">4 (Добре)</option>
-                        <option value="3">3 (Нормально)</option>
-                        <option value="2">2 (Погано)</option>
-                        <option value="1">1 (Жахливо)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="comment">Ваш коментар:</label>
-                    <textarea id="comment" rows="4" required></textarea>
-                </div>
-                <button type="submit">Відправити</button>
-            </form>
-            
-            <div id="reviews-list">
-                <p>Завантаження відгуків...</p>
-            </div>
-        </section>
-
     </main>
 
-    <style>
-       
-        .back-link {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-        .tour-details-page {
-            flex-direction: column; /* Елементи один під одним */
-        }
-        #tour-details-container {
-            display: flex;
-            gap: 20px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        #tour-details-container img {
-            width: 50%;
-            max-width: 600px;
-            border-radius: 8px;
-        }
-        #tour-details-info {
-            flex: 1;
-        }
-        #reviews-section {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        #review-form {
-            max-width: 600px;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .review-item {
-            border-bottom: 1px solid #eee;
-            padding: 15px 0;
-        }
-        .review-item strong {
-            font-size: 1.1rem;
-        }
-        .review-item .rating {
-            font-weight: bold;
-            color: #f0ad4e;  
-        }
-    </style>
+    <div id="profile-modal" class="modal">
+        <div class="modal-content profile-content">
+            <span class="close-btn" id="close-profile">&times;</span>
+            
+            <div class="profile-avatar-wrapper">
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" id="profile-avatar" alt="Avatar">
+                <label for="avatar-input" class="upload-icon">📷</label>
+                <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+            </div>
+
+            <p id="profile-email" style="color: #777; margin-bottom: 15px; font-size: 14px;"></p>
+
+            <div class="profile-form-group">
+                <label for="profile-name">Ваше ім'я:</label>
+                <input type="text" id="profile-name" placeholder="Введіть ім'я">
+            </div>
+
+            <button id="save-profile-btn" class="hero-btn" style="font-size: 18px; padding: 10px 30px; width: 100%; margin-bottom: 10px;">Зберегти</button>
+            <button id="logout-btn-modal" class="btn btn-light-outline" style="width: 100%; border: 1px solid #ccc;">Вийти з акаунту</button>
+        </div>
+    </div>
+
+
+    <div id="booking-modal" class="modal">
+        <div class="modal-content profile-content">
+            <span class="close-btn" id="close-booking">&times;</span>
+            
+            <h2 style="color: #A0734A; margin-top: 0;">Бронювання</h2>
+            <p id="booking-tour-title" style="color: #777; margin-bottom: 20px; font-weight: bold;"></p>
+
+            <form id="booking-form">
+                <div class="profile-form-group">
+                    <label for="book-name">Ім'я:</label>
+                    <input type="text" id="book-name" required placeholder="Ваше ім'я">
+                </div>
+
+                <div class="profile-form-group">
+                    <label for="book-phone">Телефон:</label>
+                    <input type="tel" id="book-phone" required placeholder="+380...">
+                </div>
+
+                <div class="profile-form-group">
+                    <label for="book-date">Дата початку:</label>
+                    <input type="date" id="book-date" required>
+                </div>
+
+                <div class="profile-form-group">
+    <label for="book-date-end">Дата завершення:</label>
+    <input type="date" id="book-date-end" required>
+</div>
+                
+                <div class="profile-form-group">
+                    <label for="book-people">Кількість людей:</label>
+                    <input type="number" id="book-people" min="1" value="2" required>
+                </div>
+
+                <button type="submit" class="hero-btn" style="font-size: 18px; padding: 10px 30px; width: 100%;">Підтвердити</button>
+            </form>
+        </div>
+    </div>
+
+    
 </body>
 </html>
